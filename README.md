@@ -18,9 +18,9 @@ _Below is an example of how you can instruct your audience on installing and set
 1. Just add IAPManager.swift to your prohject
 2. Fetch Produts as soon as possible. We recommend the following in AppDelegate.swift
    ```
-unc application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
  IAPManger.shared.fetchProducts()
 ...
 return true
 }
- ```
+```
