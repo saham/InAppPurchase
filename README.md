@@ -17,7 +17,9 @@ Below is how you can add IAPManger to your app.
 
 1. Just add `IAPManager.swift` to your prohject
 2. Make sure Targeted Membership is selected
+
 ![IAPManager](https://user-images.githubusercontent.com/4553478/219778126-4e843df4-6faf-4e1c-9254-dcc35fdef3d5.jpeg)
+
 
 
 3. Fetch Produts as soon as possible. We recommend the following in `AppDelegate.swift`
