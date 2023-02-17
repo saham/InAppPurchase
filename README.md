@@ -13,7 +13,7 @@ enum ProductId:String, CaseIterable {
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+Below is how you can add InAppManager to your app.
 
 1. Just add IAPManager.swift to your prohject
 2. Fetch Produts as soon as possible. We recommend the following in `AppDelegate.swift`
