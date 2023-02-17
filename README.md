@@ -13,7 +13,7 @@ enum ProductId:String, CaseIterable {
 
 ### Installation
 
-Below is how you can add InAppManager to your app.
+Below is how you can add IAPManger to your app.
 
 1. Just add IAPManager.swift to your prohject
 2. Fetch Produts as soon as possible. We recommend the following in `AppDelegate.swift`
