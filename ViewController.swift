@@ -1,46 +1,54 @@
-import UIKit
 import StoreKit
-class ViewController: UIViewController, SKRequestDelegate {
+import UIKit
+
+class ViewController: UIViewController {
+    // MARK: - Variables
+    @IBOutlet weak var tableView: UITableView!
+    var Products:[SKProduct] = []
+    var SelectedProd: SKProduct?
     
-    @IBAction func RestorePressed(_ sender: UIButton) {
-        IAPManger.shared.restore()
+    // MARK: - View LifeCycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.Products = IAPManger.shared.products
+        SelectedProd = Products.first
+        tableView.delegate = self
+        tableView.dataSource = self
+        IAPManger.shared.delegate = self
     }
-    
-    @IBAction func BuyPressed(_ sender: UIButton) {
-        if let productToBuy = IAPManger.shared.getSortedProducts().first{
-            // Assume we buy first product
+
+    // MARK: - IBAction
+    @IBAction func Buy(_ sender: UIButton) {
+        if let productToBuy = SelectedProd {
             IAPManger.shared.purchase(product: productToBuy)
         }
     }
-
-    // MARK: - view
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    @IBAction func Restore(_ sender: UIButton) {
+        IAPManger.shared.restore()
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
- 
-    // MARK: - Functions
 }
-extension BuyRestoreViewController: IAPHandlerDelegate {
-    func transactionStatus(transaction: SKPaymentTransaction) {
-        switch transaction.transactionState {
-        case .restored:
-            // Your code to update UI/Your Backend, etc...
-        case .deferred:
-            guard transaction.payment.productIdentifier == IAPManger.shared.productBeingPurchased?.productIdentifier else {return}
-            // Your code to update UI/Your Backend, etc...
-        case .purchasing:
-            // Your code to update UI/Your Backend, etc...
-           break
-        case .purchased:
-            // Your code to update UI/Your Backend, etc...
-        case .failed:
-            // Your code to update UI/Your Backend, etc...
-        default:
-            break
-        }
+// MARK: - tableView Delegate and Datasource
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return Products.count
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        SelectedProd = Products[indexPath.row]
+        tableView.reloadData()
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let product = Products[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = product.localizedDescription
+        cell.detailTextLabel?.text = "\(product.price)"
+        cell.accessoryType = SelectedProd == product ? .checkmark : .none
+        return cell
     }
 }
 
+// MARK: - IAPManager Delegate
+extension ViewController: IAPHandlerDelegate {
+    func status(transaction: SKPaymentTransaction) {
+        // Implement this
+    }
+}
