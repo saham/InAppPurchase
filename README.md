@@ -19,8 +19,8 @@ _Below is an example of how you can instruct your audience on installing and set
 2. Fetch Produts as soon as possible. We recommend the following in AppDelegate.swift
    ```
    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
- IAPManger.shared.fetchProducts()
-...
-return true
-}
+   IAPManger.shared.fetchProducts()
+   ....
+   return true
+   }
 ```
