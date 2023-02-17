@@ -16,7 +16,7 @@ enum ProductId:String, CaseIterable {
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
 1. Just add IAPManager.swift to your prohject
-2. Fetch Produts as soon as possible. We recommend the following in AppDelegate.swift
+2. Fetch Produts as soon as possible. We recommend the following in `AppDelegate.swift`
    ```
    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
    IAPManger.shared.fetchProducts()
