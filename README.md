@@ -30,3 +30,5 @@ Below is how you can add IAPManger to your app.
    return true
    }
    ```
+### Example
+<img width="290" alt="IAP Example" src="https://user-images.githubusercontent.com/4553478/219786848-6c1ea1d9-ad89-455a-860a-9f84a7ce7134.png">
