@@ -15,8 +15,11 @@ enum ProductId:String, CaseIterable {
 
 Below is how you can add IAPManger to your app.
 
-1. Just add IAPManager.swift to your prohject
-2. Fetch Produts as soon as possible. We recommend the following in `AppDelegate.swift`
+1. Just add `IAPManager.swift` to your prohject
+2. Make sure Targeted Membership is selected
+<img width="256" alt="IAPManager" src="https://user-images.githubusercontent.com/4553478/219777619-a9ed0ea2-aaca-46ad-b6ac-2d8af8970c32.png">
+
+3. Fetch Produts as soon as possible. We recommend the following in `AppDelegate.swift`
    ```
    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
    IAPManger.shared.fetchProducts()
