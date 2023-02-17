@@ -40,7 +40,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let product = Products[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = product.localizedDescription
-        cell.detailTextLabel?.text = "\(product.price)"
+        cell.detailTextLabel?.text = product.localizedPrice
         cell.accessoryType = SelectedProd == product ? .checkmark : .none
         return cell
     }

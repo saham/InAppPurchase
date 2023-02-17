@@ -78,3 +78,24 @@ enum ProductId:String, CaseIterable {
     case Prod2 = "com.Prod2"
     case Prod3 = "com.Prod3"
 }
+extension SKProduct {
+    fileprivate static var formatter: NumberFormatter {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        return formatter
+    }
+    
+    var localizedPrice: String {
+        if self.price == 0.00 {
+            return "Free"
+        } else {
+            let formatter = SKProduct.formatter
+            formatter.locale = self.priceLocale
+            
+            guard let formattedPrice = formatter.string(from: self.price) else {
+                return "Unknown Price"
+            }
+            return formattedPrice
+        }
+    }
+}
