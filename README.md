@@ -13,7 +13,7 @@ enum ProductId:String, CaseIterable {
 
 ### How to use
 
-Below is how you can add IAPManger to your app.
+Below is how you can add IAPManager to your app.
 
 1. Just add `IAPManager.swift` to your prohject
 2. Make sure Target Membership is selected
