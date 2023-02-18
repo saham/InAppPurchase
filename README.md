@@ -11,7 +11,7 @@ enum ProductId:String, CaseIterable {
 }
 ```
 
-### Installation
+### How to use
 
 Below is how you can add IAPManger to your app.
 
