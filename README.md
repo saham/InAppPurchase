@@ -1,6 +1,6 @@
 
 ## InAppPurchase
-1. This is a general singletone In-App Store Manger that can be shared between apps or mutiple places in one app.
+1. This is a general singleton In-App Store Manager that can be shared between apps or mutiple places in one app.
 You need to have a case for each ProductID
 ```
 enum ProductId:String, CaseIterable {
