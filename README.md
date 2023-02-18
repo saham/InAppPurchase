@@ -1,6 +1,6 @@
 
 ## InAppPurchase
-1. This is a general singleton In-App Store Manager that can be shared between apps or mutiple places in one app.
+This is a general singleton In-App Store Manager that can be shared between apps or mutiple places in one app.
 You need to have a case for each ProductID
 ```
 enum ProductId:String, CaseIterable {
@@ -15,14 +15,14 @@ enum ProductId:String, CaseIterable {
 
 Below is how you can add IAPManager to your app.
 
-1. Just add `IAPManager.swift` to your prohject
-2. Make sure Target Membership is selected
+- Just add `IAPManager.swift` to your prohject
+- Make sure Target Membership is selected
 
 ![IAPManager](https://user-images.githubusercontent.com/4553478/219778126-4e843df4-6faf-4e1c-9254-dcc35fdef3d5.jpeg)
 
 
 
-3. Fetch Produts as soon as possible. We recommend the following in `AppDelegate.swift`
+- Fetch Produts as soon as possible. We recommend the following in `AppDelegate.swift`
    ```
    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
    IAPManger.shared.fetchProducts()
