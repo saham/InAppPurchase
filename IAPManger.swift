@@ -3,7 +3,7 @@ import StoreKit
 @objc protocol IAPHandlerDelegate {
     func transactionStatus(transaction: SKPaymentTransaction)
 }
-class IAPManger: NSObject, SKProductsRequestDelegate,SKPaymentTransactionObserver,SKRequestDelegate {
+class IAPManager: NSObject, SKProductsRequestDelegate,SKPaymentTransactionObserver,SKRequestDelegate {
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions {
             switch transaction.transactionState {
@@ -30,7 +30,7 @@ class IAPManger: NSObject, SKProductsRequestDelegate,SKPaymentTransactionObserve
     var products:[SKProduct] = []
     var productBeingPurchased: SKProduct?
     var delegate:IAPHandlerDelegate?
-    static let shared = IAPManger()
+    static let shared = IAPManager()
     
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         guard !response.products.isEmpty else {return}

@@ -10,21 +10,21 @@ class ViewController: UIViewController {
     // MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.Products = IAPManger.shared.products
+        self.Products = IAPManager.shared.products
         SelectedProd = Products.first
         tableView.delegate = self
         tableView.dataSource = self
-        IAPManger.shared.delegate = self
+        IAPManager.shared.delegate = self
     }
 
     // MARK: - IBAction
     @IBAction func Buy(_ sender: UIButton) {
         if let productToBuy = SelectedProd {
-            IAPManger.shared.purchase(product: productToBuy)
+            IAPManager.shared.purchase(product: productToBuy)
         }
     }
     @IBAction func Restore(_ sender: UIButton) {
-        IAPManger.shared.restore()
+        IAPManager.shared.restore()
     }
 }
 // MARK: - tableView Delegate and Datasource
