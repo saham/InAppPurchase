@@ -3,9 +3,22 @@ import UIKit
 
 class ViewController: UIViewController {
     // MARK: - Variables
-    @IBOutlet weak var tableView: UITableView!
     var Products:[SKProduct] = []
     var SelectedProd: SKProduct?
+
+    // MARK: - IBOutlet
+    @IBOutlet weak var tableView: UITableView!
+
+    // MARK: - IBAction
+    @IBAction func Buy(_ sender: UIButton) {
+        if let productToBuy = SelectedProd {
+            IAPManager.shared.purchase(product: productToBuy)
+        }
+    }
+
+    @IBAction func Restore(_ sender: UIButton) {
+        IAPManager.shared.restore()
+    }
     
     // MARK: - View LifeCycle
     override func viewDidLoad() {
@@ -15,16 +28,6 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         IAPManager.shared.delegate = self
-    }
-
-    // MARK: - IBAction
-    @IBAction func Buy(_ sender: UIButton) {
-        if let productToBuy = SelectedProd {
-            IAPManager.shared.purchase(product: productToBuy)
-        }
-    }
-    @IBAction func Restore(_ sender: UIButton) {
-        IAPManager.shared.restore()
     }
 }
 // MARK: - tableView Delegate and Datasource
