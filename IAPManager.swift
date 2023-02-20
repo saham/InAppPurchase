@@ -91,7 +91,6 @@ extension SKProduct {
         } else {
             let formatter = SKProduct.formatter
             formatter.locale = self.priceLocale
-            
             guard let formattedPrice = formatter.string(from: self.price) else {
                 return "Unknown Price"
             }
