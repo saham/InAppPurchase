@@ -52,20 +52,20 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 // MARK: - IAPManager Delegate
 extension ViewController: IAPHandlerDelegate {
     func status(transaction: SKPaymentTransaction) {
-        // Implement this. You can use this to update the UI
-switch transaction.transactionState {
-        case .restored:
-            print("Transaction restored")
-        case .deferred:
-            print("Transaction deferred")
+        switch transaction.transactionState {
+            
         case .purchasing:
-            print("Transaction being purchased")
+            print("purchasing")
         case .purchased:
-            print("Transaction purchased")
+            print("purchased")
         case .failed:
-            print("Transaction faild")
-        default:
-            break
+            print("failed")
+        case .restored:
+            print("restored")
+        case .deferred:
+            print("deferred")
+        @unknown default:
+            print("unknown")
         }
     }
 }
