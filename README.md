@@ -25,9 +25,9 @@ Below is how you can add IAPManager to your app.
 3 Fetch Produts as soon as possible. We recommend the following in `AppDelegate.swift`
    ```
    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-   IAPManger.shared.fetchProducts()
-   ....
-   return true
+        IAPManger.shared.fetchProducts()
+        ....
+        return true
    }
    ```
 ### Example
