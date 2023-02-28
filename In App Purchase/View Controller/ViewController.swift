@@ -43,7 +43,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let product = self.products[indexPath.row]
-        cell.textLabel?.text = product.productIdentifier
+        cell.textLabel?.text = product.productIdentifier // To demo. It's not recommended to show  productIdentifier to End User
         cell.detailTextLabel?.text = product.localizedPrice
         cell.accessoryType = product == selectedProduct ? .checkmark : .none
         return cell
