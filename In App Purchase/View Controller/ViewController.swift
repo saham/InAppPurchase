@@ -5,12 +5,14 @@ class ViewController: UIViewController {
     // MARK: - Variables
     var products:[SKProduct] = []
     var selectedProduct: SKProduct?
+    var ProductBeingPurchased: SKProduct?
     
     // MARK: - IBOutlet
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - IBAction
     @IBAction func buyPressed(_ sender: UIButton) {
+        self.ProductBeingPurchased = selectedProduct
         if let productToBuy = selectedProduct {
             IAPManager.shared.purchase(product: productToBuy)
         }
@@ -58,6 +60,7 @@ extension ViewController: IAPHandlerDelegate {
         case .purchasing:
             print("purchasing")
         case .purchased:
+            guard transaction.payment.productIdentifier == self.ProductBeingPurchased?.productIdentifier else {return}
             print("purchased")
         case .failed:
             print("failed")
