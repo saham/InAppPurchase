@@ -18,7 +18,8 @@ Below is how you can add IAPManager to your app.
 1. Just add `IAPManager.swift` to your project
 2. Make sure Target Membership is selected
 
-![IAPManager](https://user-images.githubusercontent.com/4553478/219778126-4e843df4-6faf-4e1c-9254-dcc35fdef3d5.jpeg)
+<img width="262" alt="Screenshot 2023-02-27 at 8 43 50 PM" src="https://user-images.githubusercontent.com/4553478/221731300-9292d994-b7f3-4159-94c1-438e34f72692.png">
+
 
 
 
@@ -31,5 +32,6 @@ Below is how you can add IAPManager to your app.
    }
    ```
 ### Example
-<img width="290" alt="IAP Example" src="https://user-images.githubusercontent.com/4553478/219787604-770a8c79-52c7-4278-85eb-f2b56ccd0131.png">
+
+![Simulator Screen Shot - iPhone 14 Pro - 2023-02-27 at 20 43 31](https://user-images.githubusercontent.com/4553478/221731321-bb392699-0323-4c26-bb29-a4240239ad81.png)
 
