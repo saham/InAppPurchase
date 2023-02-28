@@ -26,7 +26,7 @@
 		CEEAB85D29AD84A400F721E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEEAB85F29AD84A400F721E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEEAB86829AD88A000F721E3 /* IAPManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
-		CEEAB86A29AD898A00F721E3 /* StoreConfig.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; name = StoreConfig.storekit; path = "In App Purchase/StoreConfig.storekit"; sourceTree = "<group>"; };
+		CEEAB86A29AD898A00F721E3 /* StoreConfig.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreConfig.storekit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,7 +43,6 @@
 		CEEAB84529AD84A300F721E3 = {
 			isa = PBXGroup;
 			children = (
-				CEEAB86A29AD898A00F721E3 /* StoreConfig.storekit */,
 				CEEAB85029AD84A300F721E3 /* In App Purchase */,
 				CEEAB84F29AD84A300F721E3 /* Products */,
 			);
@@ -66,6 +65,7 @@
 				CEEAB85329AD84A300F721E3 /* SceneDelegate.swift */,
 				CEEAB85729AD84A300F721E3 /* Main.storyboard */,
 				CEEAB85A29AD84A400F721E3 /* Assets.xcassets */,
+				CEEAB86A29AD898A00F721E3 /* StoreConfig.storekit */,
 				CEEAB85C29AD84A400F721E3 /* LaunchScreen.storyboard */,
 				CEEAB85F29AD84A400F721E3 /* Info.plist */,
 			);
