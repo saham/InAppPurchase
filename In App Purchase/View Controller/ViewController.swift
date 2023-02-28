@@ -60,7 +60,7 @@ extension ViewController: IAPHandlerDelegate {
         case .purchasing:
             print("purchasing")
         case .purchased:
-            guard transaction.payment.productIdentifier == self.ProductBeingPurchased?.productIdentifier else {return}
+            guard transaction.payment.productIdentifier == IAPManager.shared.productBeingPurchased?.productIdentifier else {return}
             print("purchased")
         case .failed:
             print("failed")

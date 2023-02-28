@@ -29,6 +29,7 @@ class IAPManager: NSObject, SKProductsRequestDelegate,SKPaymentTransactionObserv
     // MARK: - Variables
     var products:[SKProduct] = []
     var delegate:IAPHandlerDelegate?
+    var productBeingPurchased: SKProduct?
     static let shared = IAPManager()
     
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
@@ -58,6 +59,7 @@ class IAPManager: NSObject, SKProductsRequestDelegate,SKPaymentTransactionObserv
     public func purchase(product: SKProduct) {
         // Call to purchase
         guard SKPaymentQueue.canMakePayments() else {return}
+        productBeingPurchased = product
         let payment = SKPayment(product: product)
         SKPaymentQueue.default().add(self)
         SKPaymentQueue.default().add(payment)
