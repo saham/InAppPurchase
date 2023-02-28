@@ -1,57 +1,58 @@
-import StoreKit
 import UIKit
-
+import StoreKit
 class ViewController: UIViewController {
+    
     // MARK: - Variables
-    var Products:[SKProduct] = []
-    var SelectedProduct: SKProduct?
-
+    var products:[SKProduct] = []
+    var selectedProduct: SKProduct?
+    
     // MARK: - IBOutlet
     @IBOutlet weak var tableView: UITableView!
-
+    
     // MARK: - IBAction
-    @IBAction func Buy(_ sender: UIButton) {
-        if let productToBuy = SelectedProduct {
+    @IBAction func buyPressed(_ sender: UIButton) {
+        if let productToBuy = selectedProduct {
             IAPManager.shared.purchase(product: productToBuy)
         }
     }
-
-    @IBAction func Restore(_ sender: UIButton) {
+    
+    @IBAction func restorePressed(_ sender: UIButton) {
         IAPManager.shared.restore()
     }
     
     // MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.Products = IAPManager.shared.products
-        SelectedProduct = Products.first
+        products = IAPManager.shared.getSortedProducts()
+        selectedProduct = products.first
         tableView.delegate = self
         tableView.dataSource = self
         IAPManager.shared.delegate = self
     }
 }
 // MARK: - tableView Delegate and DataSource
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Products.count
+        return products.count
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        SelectedProduct = Products[indexPath.row]
+        selectedProduct = products[indexPath.row]
         tableView.reloadData()
     }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let product = Products[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = product.localizedDescription
+        let product = self.products[indexPath.row]
+        cell.textLabel?.text = product.productIdentifier
         cell.detailTextLabel?.text = product.localizedPrice
-        cell.accessoryType = SelectedProduct == product ? .checkmark : .none
+        cell.accessoryType = product == selectedProduct ? .checkmark : .none
         return cell
     }
+    
 }
-
 // MARK: - IAPManager Delegate
 extension ViewController: IAPHandlerDelegate {
-    func status(transaction: SKPaymentTransaction) {
+    func transactionStatus(transaction: SKPaymentTransaction) {
         // You can update UI in here
         switch transaction.transactionState {
         case .purchasing:
