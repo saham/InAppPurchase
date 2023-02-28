@@ -33,5 +33,6 @@ Below is how you can add IAPManager to your app.
    ```
 ### Example
 
-![Simulator Screen Shot - iPhone 14 Pro - 2023-02-27 at 20 43 31](https://user-images.githubusercontent.com/4553478/221731321-bb392699-0323-4c26-bb29-a4240239ad81.png)
+
+![Simulator Screen Shot - iPhone 14 Pro - 2023-02-27 at 20 43 31](https://user-images.githubusercontent.com/4553478/221731452-a74d1b07-3c62-44a0-9659-60277abc413e.png)
 
