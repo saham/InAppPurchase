@@ -66,7 +66,7 @@ class IAPManager: NSObject, SKProductsRequestDelegate,SKPaymentTransactionObserv
     }
     
     public func restore() {
-        // Call to restore all previously purchased products
+        // Call to restore all previously purchased none consumable products
         SKPaymentQueue.default().add(self)
         SKPaymentQueue.default().restoreCompletedTransactions()
     }
