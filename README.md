@@ -36,3 +36,7 @@ Below is how you can add IAPManager to your app.
 
 ![Simulator Screen Shot - iPhone 14 Pro - 2023-02-27 at 20 43 31](https://user-images.githubusercontent.com/4553478/221731452-a74d1b07-3c62-44a0-9659-60277abc413e.png)
 
+
+### Donation
+
+If you liked this free repository, you can BuyMeACofee at https://www.buymeacoffee.com/NovaNext
