@@ -39,4 +39,4 @@ Below is how you can add IAPManager to your app.
 
 ### Donation
 
-If you liked this free repository, you can [Buy me a coffee] (https://www.buymeacoffee.com/NovaNext)
+If you liked this free repository, you can [Buy me a coffee](https://www.buymeacoffee.com/NovaNext)
