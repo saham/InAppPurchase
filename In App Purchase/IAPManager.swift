@@ -56,11 +56,14 @@ class IAPManager: NSObject, SKProductsRequestDelegate,SKPaymentTransactionObserv
         request.start()
     }
     
-    public func purchase(product: SKProduct) {
+    public func purchase(product: SKProduct,quantity: Int = 1) {
         // Call to purchase
         guard SKPaymentQueue.canMakePayments() else {return}
         productBeingPurchased = product
-        let payment = SKPayment(product: product)
+        let payment = SKMutablePayment(product: product)
+        if quantity > 0 {
+            payment.quantity = quantity
+        }
         SKPaymentQueue.default().add(self)
         SKPaymentQueue.default().add(payment)
     }

@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBAction func buyPressed(_ sender: UIButton) {
         self.ProductBeingPurchased = selectedProduct
         if let productToBuy = selectedProduct {
-            IAPManager.shared.purchase(product: productToBuy)
+            IAPManager.shared.purchase(product: productToBuy, quantity: 1)
         }
     }
     
