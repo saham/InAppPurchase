@@ -35,7 +35,6 @@ class IAPManager: NSObject, SKProductsRequestDelegate,SKPaymentTransactionObserv
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         guard !response.products.isEmpty else {return}
         products = response.products
-        
     }
     func request(_ request: SKRequest, didFailWithError error: Error) {
         print(error.localizedDescription)
