@@ -1,6 +1,7 @@
 import UIKit
 import StoreKit
-class ViewController: UIViewController {
+
+class StoreKitViewController: UIViewController {
     
     // MARK: - Variables
     var products:[SKProduct] = []
@@ -33,7 +34,7 @@ class ViewController: UIViewController {
     }
 }
 // MARK: - tableView Delegate and DataSource
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension StoreKitViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return products.count
     }
@@ -53,7 +54,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 // MARK: - IAPManager Delegate
-extension ViewController: IAPHandlerDelegate {
+extension StoreKitViewController: IAPHandlerDelegate {
     func transactionStatus(transaction: SKPaymentTransaction) {
         // You can update UI in here
         switch transaction.transactionState {

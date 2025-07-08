@@ -1,26 +1,18 @@
 import Foundation
 import StoreKit
+
 @objc protocol IAPHandlerDelegate {
     func transactionStatus(transaction: SKPaymentTransaction)
 }
 class IAPManager: NSObject, SKProductsRequestDelegate,SKPaymentTransactionObserver,SKRequestDelegate {
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions {
+            delegate?.transactionStatus(transaction: transaction)
             switch transaction.transactionState {
             case .purchasing:
-                delegate?.transactionStatus(transaction: transaction)
-            case .purchased:
+                print("purchasing...")
+            case .purchased,.failed,.restored,.deferred:
                 SKPaymentQueue.default().finishTransaction(transaction)
-                delegate?.transactionStatus(transaction: transaction)
-            case .failed:
-                SKPaymentQueue.default().finishTransaction(transaction)
-                delegate?.transactionStatus(transaction: transaction)
-            case .restored:
-                SKPaymentQueue.default().finishTransaction(transaction)
-                delegate?.transactionStatus(transaction: transaction)
-            case .deferred:
-                SKPaymentQueue.default().finishTransaction(transaction)
-                delegate?.transactionStatus(transaction: transaction)
             @unknown default:
                 break
             }
