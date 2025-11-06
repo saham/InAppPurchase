@@ -8,9 +8,9 @@ class StoreKit2ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBAction func buy(_ sender: UIButton) {
-        if let selectedProduct = selectedProduct {
+        if let product = selectedProduct {
             Task{
-                await InAppPurchaseManager.shared.purchase(product: selectedProduct)
+                await InAppPurchaseManager.shared.purchase(product: product)
             }
         }
     }
