@@ -6,14 +6,12 @@ class StoreKitViewController: UIViewController {
     // MARK: - Variables
     var products:[SKProduct] = []
     var selectedProduct: SKProduct?
-    var ProductBeingPurchased: SKProduct?
     
     // MARK: - IBOutlet
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - IBAction
     @IBAction func buyPressed(_ sender: UIButton) {
-        self.ProductBeingPurchased = selectedProduct
         if let productToBuy = selectedProduct {
             IAPManager.shared.purchase(product: productToBuy, quantity: 1)
         }
